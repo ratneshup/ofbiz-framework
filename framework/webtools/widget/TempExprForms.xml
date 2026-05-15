@@ -70,7 +70,8 @@ under the License.
     <form name="ListChildExpressions" extends="BasicExpressionList" list-name="childExpressionList" paginate-target="editTemporalExpression?tempExprId=${tempExprId}">
         <field name="exprAssocType"><display/></field>
         <field name="deleteButton" title=" " widget-style="buttontext">
-            <hyperlink description="${uiLabelMap.CommonDelete}" target="deleteTemporalExpressionAssoc" also-hidden="false">
+            <hyperlink description="${uiLabelMap.CommonDelete}" target="deleteTemporalExpressionAssoc" also-hidden="false"
+                    request-confirmation="true" confirmation-message="${uiLabelMap.WebtoolsConfirmIrreversibleDelete} TemporalExpressionAssoc ${fromTempExprId} -> ${tempExprId}?">
                 <parameter param-name="tempExprId" from-field="parameters.tempExprId"/>
                 <parameter param-name="fromTempExprId"/>
                 <parameter param-name="toTempExprId" from-field="tempExprId"/>

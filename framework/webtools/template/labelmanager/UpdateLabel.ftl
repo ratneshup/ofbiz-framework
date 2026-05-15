@@ -21,6 +21,9 @@ under the License.
         document.UpdateLabelForm.action="<@ofbizUrl>SaveLabelsToXmlFile</@ofbizUrl>";
         document.UpdateLabelForm.submit();
     }
+    function confirmRemoveLabel() {
+        return confirm('${uiLabelMap.WebtoolsConfirmIrreversibleDelete?js_string} ${uiLabelMap.WebtoolsLabelManagerKey?js_string}: ${parameters.sourceKey!?js_string}?');
+    }
 </script>
 <div class="screenlet-body">
     <form method="post" action="<@ofbizUrl>SaveLabelsToXmlFile</@ofbizUrl>" name="UpdateLabelForm">
@@ -67,7 +70,7 @@ under the License.
                 <td colspan="2" align="center">
                     <input type="submit" value="${uiLabelMap.CommonBack}"/>
                     <#if parameters.sourceKey??>
-                        <input type="submit" value="${uiLabelMap.WebtoolsLabelManagerRemove}" name="removeLabel"/>
+                        <input type="submit" value="${uiLabelMap.WebtoolsLabelManagerRemove}" name="removeLabel" onclick="return confirmRemoveLabel();"/>
                         <input type="submit" value="${uiLabelMap.CommonUpdate}" name="confirm" onclick="javascript:updateAndSaveLabel()"/>
                     <#else>
                         <input type="submit" value="${uiLabelMap.CommonAdd}" name="confirm"/>
@@ -116,7 +119,7 @@ under the License.
                 <td colspan="2" align="center">
                     <input type="submit" value="${uiLabelMap.CommonBack}"/>
                     <#if parameters.sourceKey??>
-                        <input type="submit" value="${uiLabelMap.WebtoolsLabelManagerRemove}" name="removeLabel"/>
+                        <input type="submit" value="${uiLabelMap.WebtoolsLabelManagerRemove}" name="removeLabel" onclick="return confirmRemoveLabel();"/>
                         <input type="submit" value="${uiLabelMap.CommonUpdate}" name="confirm" onclick="javascript:updateAndSaveLabel()"/>
                     <#else>
                         <input type="submit" value="${uiLabelMap.CommonAdd}" name="confirm"/>
