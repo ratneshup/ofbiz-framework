@@ -59,12 +59,9 @@ under the License.
    function enableTablesRemove() {
        document.forms["TablesRemoveForm"].elements["TablesRemoveButton"].disabled=false;
    }
-   function confirmWebtoolsDelete(action, target) {
-       return confirm('${uiLabelMap.WebtoolsConfirmIrreversibleDelete?js_string} ' + action + ': ' + target + '?');
-   }
 </script>
 <h3>${uiLabelMap.WebtoolsRemoveAllTables}</h3>
-<form class="basic-form" method="post" action="<@ofbizUrl>${checkDbURL}</@ofbizUrl>" name="TablesRemoveForm" onsubmit="return confirmWebtoolsDelete('${uiLabelMap.WebtoolsRemoveAllTables?js_string}', this.groupName.value);">
+<form class="basic-form" method="post" action="<@ofbizUrl>${checkDbURL}</@ofbizUrl>" name="TablesRemoveForm" onsubmit="return confirm('${uiLabelMap.WebtoolsConfirmIrreversibleDelete?js_string} ${uiLabelMap.WebtoolsRemoveAllTables?js_string}: ' + this.groupName.value + '?');">
    <table class="basic-table" cellspacing="0">
       <tbody>
          <tr>
@@ -83,7 +80,7 @@ under the License.
       </tbody>
    </table>
 </form>
-<form class="basic-form" method="post" action="<@ofbizUrl>${checkDbURL}</@ofbizUrl>" name="TableRemoveForm" onsubmit="return confirmWebtoolsDelete('${uiLabelMap.WebtoolsRemoveAllTables?js_string}', this.entityName.value);">
+<form class="basic-form" method="post" action="<@ofbizUrl>${checkDbURL}</@ofbizUrl>" name="TableRemoveForm" onsubmit="return confirm('${uiLabelMap.WebtoolsConfirmIrreversibleDelete?js_string} ${uiLabelMap.WebtoolsRemoveAllTables?js_string}: ' + this.entityName.value + '?');">
    <table class="basic-table" cellspacing="0">
       <tbody>
          <tr>
@@ -128,7 +125,7 @@ under the License.
       </tbody>
    </table>
 </form>
-<form class="basic-form" method="post" action="<@ofbizUrl>${checkDbURL}</@ofbizUrl>" onsubmit="return confirmWebtoolsDelete('${uiLabelMap.WebtoolsCreateRemoveAllPrimaryKeys?js_string}', this.groupName.value);">
+<form class="basic-form" method="post" action="<@ofbizUrl>${checkDbURL}</@ofbizUrl>" onsubmit="return confirm('${uiLabelMap.WebtoolsConfirmIrreversibleDelete?js_string} ${uiLabelMap.WebtoolsCreateRemoveAllPrimaryKeys?js_string}: ' + this.groupName.value + '?');">
    <table class="basic-table" cellspacing="0">
       <tbody>
          <tr>
@@ -171,7 +168,7 @@ under the License.
       </tbody>
    </table>
 </form>
-<form class="basic-form" method="post" action="<@ofbizUrl>${checkDbURL}</@ofbizUrl>" onsubmit="return confirmWebtoolsDelete('${uiLabelMap.WebtoolsCreateRemovePrimaryKey?js_string}', this.entityName.value);">
+<form class="basic-form" method="post" action="<@ofbizUrl>${checkDbURL}</@ofbizUrl>" onsubmit="return confirm('${uiLabelMap.WebtoolsConfirmIrreversibleDelete?js_string} ${uiLabelMap.WebtoolsCreateRemovePrimaryKey?js_string}: ' + this.entityName.value + '?');">
    <table class="basic-table" cellspacing="0">
       <tbody>
          <tr>
@@ -217,7 +214,7 @@ under the License.
       </tbody>
    </table>
 </form>
-<form class="basic-form" method="post" action="<@ofbizUrl>${checkDbURL}</@ofbizUrl>" onsubmit="return confirmWebtoolsDelete('${uiLabelMap.WebtoolsCreateRemoveAllDeclaredIndices?js_string}', this.groupName.value);">
+<form class="basic-form" method="post" action="<@ofbizUrl>${checkDbURL}</@ofbizUrl>" onsubmit="return confirm('${uiLabelMap.WebtoolsConfirmIrreversibleDelete?js_string} ${uiLabelMap.WebtoolsCreateRemoveAllDeclaredIndices?js_string}: ' + this.groupName.value + '?');">
    <table class="basic-table" cellspacing="0">
       <tbody>
          <tr>
@@ -252,7 +249,7 @@ under the License.
       </tbody>
    </table>
 </form>
-<form class="basic-form" method="post" action="<@ofbizUrl>${checkDbURL}</@ofbizUrl>" onsubmit="return confirmWebtoolsDelete('${uiLabelMap.WebtoolsCreateRemoveAllForeignKeyIndices?js_string}', this.groupName.value);">
+<form class="basic-form" method="post" action="<@ofbizUrl>${checkDbURL}</@ofbizUrl>" onsubmit="return confirm('${uiLabelMap.WebtoolsConfirmIrreversibleDelete?js_string} ${uiLabelMap.WebtoolsCreateRemoveAllForeignKeyIndices?js_string}: ' + this.groupName.value + '?');">
    <table class="basic-table" cellspacing="0">
       <tbody>
          <tr>
@@ -288,7 +285,7 @@ under the License.
       </tbody>
    </table>
 </form>
-<form class="basic-form" method="post" action="<@ofbizUrl>${checkDbURL}</@ofbizUrl>" onsubmit="return confirmWebtoolsDelete('${uiLabelMap.WebtoolsCreateRemoveAllForeignKeys?js_string}', this.groupName.value);">
+<form class="basic-form" method="post" action="<@ofbizUrl>${checkDbURL}</@ofbizUrl>" onsubmit="return confirm('${uiLabelMap.WebtoolsConfirmIrreversibleDelete?js_string} ${uiLabelMap.WebtoolsCreateRemoveAllForeignKeys?js_string}: ' + this.groupName.value + '?');">
    <table class="basic-table" cellspacing="0">
       <tbody>
          <tr>
