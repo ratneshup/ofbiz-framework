@@ -29,7 +29,8 @@ plugins {
     id 'checkstyle'
     id 'codenarc'
     id 'maven-publish'
-    id "org.asciidoctor.jvm.convert" version "latest.release"
+    id "org.asciidoctor.jvm.convert" version "4.0.5" // For now we can not update above. See "production-ready version" warning in https://plugins.gradle.org/plugin/org.asciidoctor.jvm
+    id "org.asciidoctor.jvm.pdf" version "4.0.5"     // For now we can not update above. See "production-ready version" warning in https://plugins.gradle.org/plugin/org.asciidoctor.jvm
     id "org.owasp.dependencycheck" version "latest.release" apply false
     id "se.patrikerdes.use-latest-versions"  version "latest.release" apply false
     id "com.github.ben-manes.versions" version "latest.release" apply false
@@ -549,20 +550,20 @@ tasks.withType(AsciidoctorTask) { task ->
         jvm {
             jvmArgs("--add-opens","java.base/sun.nio.ch=ALL-UNNAMED","--add-opens","java.base/java.io=ALL-UNNAMED")
         }
-//    outputOptions {
-//         // I hate we have to do this - but JRuby (asciidoctorj-pdf) and Windows don't mix well
-//        if (System.properties['os.name'].toLowerCase().contains('windows')) {
-//            backends = ['html5']
-//        } else {
-//            backends = ['html5', 'pdf']
-//        }
+    outputOptions {
+         // I hate we have to do this - but JRuby (asciidoctorj-pdf) and Windows don't mix well
+        if (System.properties['os.name'].toLowerCase().contains('windows')) {
+            backends = ['html5']
+        } else {
+            backends = ['html5', 'pdf']
+        }
          //It seems we have no choice when using Builbot we now get this issue:
 //        Caused by: org.jruby.exceptions.LoadError: (LoadError) no such file to load -- asciidoctor-pdf
 //        at org.jruby.RubyKernel.require(org/jruby/RubyKernel.java:1017)
 //        at RUBY.require(uri:classloader:/META-INF/jruby.home/lib/ruby/stdlib/rubygems/core_ext/kernel_require.rb:85)
 //        at RUBY.<main>(<script>:1)
 //        backends = ['html5'] // this is the default, so for now outputOptions is not needed
-//    }
+    }
     attributes \
         'doctype': 'book',
         'revnumber': getCurrentGitBranch(),
