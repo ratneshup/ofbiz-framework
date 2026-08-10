@@ -296,6 +296,18 @@ under the License.
         <attribute name="accountingQuantityTotal" type="BigDecimal" mode="OUT" optional="false"/>
         <attribute name="useCache" type="Boolean" mode="IN" optional="true"/>
     </service>
+    <service name="getProductAvailableToOrder" engine="groovy"
+                location="component://product/src/main/groovy/org/apache/ofbiz/product/product/inventory/AvailableToOrderService.groovy" invoke="getProductAvailableToOrder" auth="false" use-transaction="true">
+        <description>Get available to order quantity for a product owned by a party.</description>
+        <attribute name="productId" type="String" mode="IN" optional="false">
+        <type-validate>
+            <fail-property resource="ProductErrorUiLabels" property="facility.productId"/>
+        </type-validate>
+        </attribute>
+        <attribute name="payToPartyId" type="String" mode="IN" optional="false"/>
+        <attribute name="orderId" type="String" mode="IN" optional="true"/>
+        <attribute name="availableToOrder" type="BigDecimal" mode="OUT" optional="true"/>
+    </service>
     <service name="countProductInventoryOnHand" engine="simple"
                 location="component://product/minilang/product/inventory/InventoryServices.xml" invoke="countProductInventoryOnHand" auth="true" use-transaction="false">
         <description>Count Inventory On Hand for a Product constrained by a facilityId at a given date.</description>
